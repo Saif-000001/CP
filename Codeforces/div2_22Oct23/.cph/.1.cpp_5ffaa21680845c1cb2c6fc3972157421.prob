@@ -1,0 +1,1 @@
+{"name":"Local: 1","url":"/home/saiful_islam/Program/CP/Codeforces/div2_22Oct23/1.cpp","tests":[{"id":1697959992083,"input":"6\n1 5\n10 8\n37 9\n777 3\n1235 10\n1 10","output":"5\n17\n45\n777\n1243\n19"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/saiful_islam/Program/CP/Codeforces/div2_22Oct23/1.cpp","group":"local","local":true}
