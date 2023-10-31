@@ -12,32 +12,64 @@ const int MOD = 1000000007;
 const int N = 2e5 + 5;
 typedef pair<int, int> pii;
 
+// void TEST_CASES()
+// {
+//     int n, q;
+//     cin >> n >> q;
+//     vector<int> a(n), add;
+//     for (int i = 0; i < n; i++)
+//         cin >> a[i];
+
+//     for (int i = 0; i < q; i++)
+//     {
+//         int x;
+//         cin >> x;
+//         // if (add.empty() || add.back() > x)
+//             add.push_back(x);
+//     }
+
+//     // for (auto i : add)
+//     //     cout << i << " ";
+//     // cout << "\n";
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = 0; j < add.size(); j++)
+//         {
+//             if (a[i] % (1 << add[j]) == 0)
+//                 a[i] += (1 << (add[j] - 1));
+//         }
+//     }
+
+//     for (auto i : a)
+//         cout << i << " ";
+//     cout << "\n";
+// }
+
 void TEST_CASES()
 {
-    int n, q;
-    cin >> n >> q;
-    vector<int> a(n), add;
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n), b;
     for (int i = 0; i < n; i++)
         cin >> a[i];
-
-    for (int i = 0; i < q; i++)
+    for (int i = 0; i < m; i++)
     {
         int x;
         cin >> x;
-        if (add.empty() || add.back() > x)
-            add.push_back(x);
+        if (b.empty() || b.back() > x)
+            b.push_back(x);
     }
-
-    // for (auto i : add)
-    //     cout << i << " ";
-    // cout << "\n";
 
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < add.size(); j++)
+        for (int j = 0; j < b.size(); j++)
         {
-            if (a[i] % (1 << add[j]) == 0)
-                a[i] |= (1 << (add[j] - 1));
+            if (a[i] % (1 << b[j]) == 0)
+            {
+                int x = b[j] - 1;
+                a[i] += (1 << x);
+            }
         }
     }
 
