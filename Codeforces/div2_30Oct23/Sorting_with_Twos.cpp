@@ -12,6 +12,33 @@ const int MOD = 1000000007;
 const int N = 2e5 + 5;
 typedef pair<int, int> pii;
 
+// void TEST_CASES()
+// {
+//     int n;
+//     cin >> n;
+//     vector<int> a(n);
+//     for (int i = 0; i < n; i++)
+//         cin >> a[i];
+
+//     int x = a[0];
+//     bool f = false;
+
+//     for (int i = 1; i < n; i++)
+//     {
+//         if (x > a[i])
+//         {
+//             if (((i - 1) & (i) ))
+//                 f = true;
+//         }
+//         x = a[i];
+//     }
+
+//     if (!f)
+//         cout << "YES\n";
+//     else
+//         cout << "NO\n";
+// }
+
 void TEST_CASES()
 {
     int n;
@@ -20,20 +47,32 @@ void TEST_CASES()
     for (int i = 0; i < n; i++)
         cin >> a[i];
 
-    int x = a[0];
-    bool f = false;
-
-    for (int i = 1; i < n; i++)
+    int p, m = 0;
+    bool f = true;
+    for (int i = 1; i < n;)
     {
-        if (x > a[i])
+        p = (1 << m);
+        vector<int> b;
+        while (i <= p && i <= n)
         {
-            if (((i - 1) & (i) ))
-                f = true;
+            b.push_back(a[i - 1]);
+            i++;
         }
-        x = a[i];
+
+        for (int j = 1; j < b.size(); j++)
+        {
+            if (b[j - 1] > b[j])
+            {
+                f = false;
+                break;
+            }
+        }
+        m++;
+        if (f == false)
+            break;
     }
 
-    if (!f)
+    if (f)
         cout << "YES\n";
     else
         cout << "NO\n";
