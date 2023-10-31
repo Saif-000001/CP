@@ -16,29 +16,29 @@ void TEST_CASES()
 {
     ll n;
     cin >> n;
-    vector<ll> v(n);
+    vector<ll> a(n);
     ll sum = 0;
-    for (ll i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        cin >> v[i];
-        sum += v[i];
+        cin >> a[i];
+        sum += a[i];
     }
-    sort(v.begin(), v.end());
-    reverse(v.begin(), v.end());
-    ll ans = sum, temp = 0, x = 0;
-    for (ll i = 0; i < n; i++)
+
+    sort(a.begin(), a.end());
+    ll ans = 0;
+    if (sum & 1)
+        ans++;
+    sum /= 2;
+    ans += sum;
+    int j = n - 1;
+    while (sum > 0)
     {
-        temp += v[i];
-        sum -= v[i];
-        if (temp > sum)
-        {
-            x = temp - sum;
-            x = (x + 1) / 2;
-        }
-        int res = sum + x;
-        ans = min(ans, i + 1 + res);
+        sum -= a[j];
+        ans++;
+        j--;
     }
-    cout << ans << endl;
+
+    cout << ans << "\n";
 }
 
 int32_t main()
